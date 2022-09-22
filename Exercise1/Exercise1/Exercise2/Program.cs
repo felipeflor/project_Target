@@ -8,29 +8,34 @@ namespace Exercise2
         {
             Console.WriteLine("Hello, please type a number to verify is it's part of the Fibonacci sequence: ");
             int number = Convert.ToInt32(Console.ReadLine());
-            int[] numbers = new int[number];
-            numbers[0] = 0;
-            numbers[1] = 1;
+
+            int result = 0;
+            int on = 0;
             int x = 0;
             int y = 1;
 
 
-                for (int i = 2; i <= number; i++)
+            while(on == 0)
+            {
+                result = x + y;
+                
+                if (result < number)
                 {
-                    if(numbers[y] <= numbers.Length)
-                    { 
-                    numbers[i] = numbers[x] + numbers[y];
-                    Console.WriteLine(numbers[i]);
-                    x++;
-                    y++;
-                    }
-                    else
-                    {
-                        break;
-                    }
-
+                    
+                } else if(result == number){
+                    Console.WriteLine("Number typed is part of the Fibonaci Sequence");
+                    on = 1;
+                } else
+                {
+                    Console.WriteLine("Number typed isn't part of the Fibonaci Sequence");
+                    break;
                 }
 
+                x = y;
+                y = result;
+
+
+            }
 
 
         }
